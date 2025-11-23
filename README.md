@@ -1,2 +1,8 @@
 # wdd130-demmerly
-Unknown. 
+
+Final Project for Demmerly.
+
+Junior Devs
+
+- Camden Nair
+- Tristan Zatylny
