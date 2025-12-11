@@ -4,11 +4,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grandma’s Wi-Fi | Retro Gaming History</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <p>something</p>
+
+    <img src="wifi-icon.png" class="nav-trigger" onclick="toggleNav()" alt="Menu">
+
+    <nav id="sideNav">
+        <a href="#home" onclick="toggleNav()">Home</a>
+        <a href="#history" onclick="toggleNav()">History</a>
+        <a href="#minigame" onclick="toggleNav()">Minigame</a>
+    </nav>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Pixel Computer" class="header-logo"> <svg viewBox="0 0 450 120">
+                <path id="textPath" d="M 10,90 C 100,20 300,20 440,90" fill="transparent" />
+                <text class="spline-text">
+                    <textPath href="#textPath">Grandma's Wi-Fi</textPath>
+                </text>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div>
+                <h2 style="font-family: 'Starborn';">A Cozy Project</h2>
+                <p>This site is dedicated to showcasing a cozy pixel-art adventure game in development. It
+                    highlights concept art, characters, and the inspiration behind the project. </p>
+            </div>
+            <img src="images/grandma_knitting.jpg" alt="Grandma and Cats" style="border: 5px solid var(--accent-2);">
+        </section>
+
+        <section id="history">
+            <h2 style="font-family: 'Starborn';">Retro Timeline</h2>
+            <div class="history-grid">
+                <div class="history-card" onclick="openModal('50s')"><strong>1950s–60s</strong>
+                    <h3>The Experiments</h3>
+                </div>
+                <div class="history-card" onclick="openModal('70s')"><strong>1970s</strong>
+                    <h3>Arcade Birth</h3>
+                </div>
+                <div class="history-card" onclick="openModal('80s')"><strong>1980s</strong>
+                    <h3>The Golden Age</h3>
+                </div>
+                <div class="history-card" onclick="openModal('90s')"><strong>1990s</strong>
+                    <h3>3D Graphics</h3>
+                </div>
+                <div class="history-card" onclick="openModal('00s')"><strong>2000s</strong>
+                    <h3>Online Play</h3>
+                </div>
+                <div class="history-card" onclick="openModal('10s')"><strong>2010s</strong>
+                    <h3>Indie Revolution</h3>
+                </div>
+                <div class="history-card" onclick="openModal('20s')"><strong>2020s</strong>
+                    <h3>Innovation</h3>
+                </div>
+            </div>
+        </section>
+        <div id="historyOverlay" class="overlay">
+            <div class="modal">
+                <button class="close-btn" onclick="closeModal()">CLOSE</button>
+                <h2 id="modalTitle" style="font-family: 'Starborn'; color: var(--accent-2);"></h2>
+                <ul id="modalBody"></ul>
+            </div>
+        </div>
+        <hr>
+        <section id="minigame">
+            <h2>The Workshop</h2>
+            <div class="minigame-placeholder">
+                <p><em>minigame</p>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script>
+        function toggleNav() {
+            document.getElementById("sideNav").classList.toggle("open");
+        }
+
+        const historyData = {
+            '50s': {
+                title: "1950s–1960s: The First Experiments",
+                bullets: [
+                    "Early computers in universities run first digital games. ",
+                    "Tennis for Two (1958) and Spacewar! (1962) show simple interactive systems. ",
+                    "Games are mostly tech demos — no commercial industry yet. "
+                ]
+            },
+            '70s': {
+                title: "1970s: Arcades & Industry Birth",
+                bullets: [
+                    "Arcade machines become mainstream. ",
+                    "Pong (1972) kicks off the commercial video game industry. ",
+                    "Designers focus on simple, addictive gameplay loops. "
+                ]
+            },
+            '80s': {
+                title: "1980s: The Golden Age",
+                bullets: [
+                    "Home consoles like the NES bring gaming into households. ",
+                    "Super Mario Bros. (1985) defines platformer design. ",
+                    "The Legend of Zelda (1986) introduces open-world exploration. "
+                ]
+            },
+            '90s': {
+                title: "1990s: 3D Graphics & Bigger Worlds",
+                bullets: [
+                    "Technology jumps from 2D to 3D. ",
+                    "DOOM (1993) popularizes shooters and modding. ",
+                    "Final Fantasy VII (1997) shows emotional storytelling. "
+                ]
+            },
+            '00s': {
+                title: "2000s: Online Play & Communities",
+                bullets: [
+                    "MMOs and online shooters reshape design around social interaction. ",
+                    "World of Warcraft (2004) and Halo 3 (2007) influence multiplayer. ",
+                    "Improved hardware allows bigger worlds and realistic physics. "
+                ]
+            },
+            '10s': {
+                title: "2010s: Indie Revolution",
+                bullets: [
+                    "Small teams and solo developers create hit games. ",
+                    "Minecraft (2011) revolutionizes sandbox creativity. ",
+                    "Stardew Valley (2016) shows the power of handcrafted design. "
+                ]
+            },
+            '20s': {
+                title: "2020s–Now: Art & Innovation",
+                bullets: [
+                    "Games blend emotional storytelling, art, and accessibility. ",
+                    "Spiritfarer (2020) inspires gentle, soulful experiences. ",
+                    "VR, AR, and AI tools expand what developers can create. "
+                ]
+            }
+        };
+
+        function openModal(key) {
+            const data = historyData[key];
+            document.getElementById("modalTitle").innerText = data.title;
+            const list = document.getElementById("modalBody");
+            list.innerHTML = "";
+            data.bullets.forEach(item => {
+                let li = document.createElement("li");
+                li.innerText = item;
+                list.appendChild(li);
+            });
+            document.getElementById("historyOverlay").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("historyOverlay").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
