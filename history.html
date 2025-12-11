@@ -13,8 +13,8 @@
     <img src="wifi-icon.png" class="nav-trigger" onclick="toggleNav()" alt="Menu">
 
     <nav id="sideNav">
-        <a href="#home" onclick="toggleNav()">Home</a>
-        <a href="history.html" onclick="toggleNav()">History</a>
+        <a href="index.html" onclick="toggleNav()">Home</a>
+        <a href="#history.html" onclick="toggleNav()">History</a>
         <a href="minigame.html" onclick="toggleNav()">Minigame</a>
     </nav>
 
@@ -30,15 +30,42 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div>
-                <h2 style="font-family: 'Starborn';">A Cozy Project</h2>
-                <p>This site is dedicated to showcasing a cozy pixel-art adventure game in development. It
-                    highlights concept art, characters, and the inspiration behind the project. </p>
-            </div>
-            <img src="images/grandma_knitting.jpg" alt="Grandma and Cats" style="border: 5px solid var(--accent-2);">
-        </section>
 
+
+        <section id="history">
+            <h2 style="font-family: 'Starborn';">Retro Timeline</h2>
+            <div class="history-grid">
+                <div class="history-card" onclick="openModal('50s')"><strong>1950s–60s</strong>
+                    <h3>The Experiments</h3>
+                </div>
+                <div class="history-card" onclick="openModal('70s')"><strong>1970s</strong>
+                    <h3>Arcade Birth</h3>
+                </div>
+                <div class="history-card" onclick="openModal('80s')"><strong>1980s</strong>
+                    <h3>The Golden Age</h3>
+                </div>
+                <div class="history-card" onclick="openModal('90s')"><strong>1990s</strong>
+                    <h3>3D Graphics</h3>
+                </div>
+                <div class="history-card" onclick="openModal('00s')"><strong>2000s</strong>
+                    <h3>Online Play</h3>
+                </div>
+                <div class="history-card" onclick="openModal('10s')"><strong>2010s</strong>
+                    <h3>Indie Revolution</h3>
+                </div>
+                <div class="history-card" onclick="openModal('20s')"><strong>2020s</strong>
+                    <h3>Innovation</h3>
+                </div>
+            </div>
+        </section>
+        <div id="historyOverlay" class="overlay">
+            <div class="modal">
+                <button class="close-btn" onclick="closeModal()">CLOSE</button>
+                <h2 id="modalTitle" style="font-family: 'Starborn'; color: var(--accent-2);"></h2>
+                <ul id="modalBody"></ul>
+            </div>
+        </div>
+        <hr>
 
     </main>
 
