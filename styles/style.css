@@ -31,6 +31,7 @@ body {
 
 /* Header & Spline */
 header {
+    font-family: 'F25 Bank Printer', Courier, monospace;
     background-color: var(--primary-color);
     padding: 30px 20px;
     display: flex;
